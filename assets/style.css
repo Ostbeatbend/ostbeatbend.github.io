@@ -1,0 +1,2338 @@
+:root {
+  --bg: #f7f0e6;
+  --text: #2a1715;
+  --muted: #765956;
+  --dark: #3b0f13;
+  --dark-soft: #5a151b;
+  --accent: #8b1e26;
+  --accent-dark: #7d351d;
+  --card: #fffaf2;
+  --line: rgba(31,26,23,.16);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, #3b0f13 0%, #5a151b 38%, #fff7f2 38%, #fff7f2 100%);
+  line-height: 1.6;
+}
+
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 12px clamp(18px, 4vw, 56px);
+  background: rgba(247, 240, 230, .94);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  font-weight: 800;
+  font-size: 1.15rem;
+  text-decoration: none;
+  letter-spacing: .03em;
+}
+
+.logo img {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: center 28%;
+}
+
+.nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: .95rem;
+}
+
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.nav a:hover { color: var(--text); }
+
+.hero {
+  min-height: 76vh;
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 36px;
+  align-items: center;
+  padding: 72px clamp(18px, 6vw, 86px);
+  background:
+    radial-gradient(circle at 12% 16%, rgba(181,81,42,.22), transparent 28%),
+    radial-gradient(circle at 86% 80%, rgba(32,21,20,.16), transparent 34%);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(3rem, 10vw, 7rem);
+  line-height: .9;
+  letter-spacing: -.06em;
+}
+
+.lead {
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  max-width: 760px;
+  color: var(--muted);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .82rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.button:hover { background: var(--accent-dark); }
+
+.button.secondary {
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--line);
+}
+
+.button.secondary:hover { background: rgba(31,26,23,.06); }
+
+.hero-photo,
+.band-image {
+  margin: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  background: var(--dark);
+  box-shadow: 0 24px 60px rgba(31, 26, 23, .18);
+}
+
+.hero-photo img {
+  width: 100%;
+  min-height: 360px;
+  max-height: 620px;
+  object-fit: cover;
+}
+
+.section {
+  padding: 78px clamp(18px, 6vw, 86px);
+}
+
+.section-title {
+  max-width: 780px;
+  margin-bottom: 28px;
+}
+
+.section h2 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.section-text {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.dark {
+  background: var(--dark);
+  color: #f8eee1;
+}
+
+.dark .eyebrow { color: #f0a073; }
+.dark p { color: #d9c9b9; }
+
+.grid {
+  display: grid;
+  gap: 18px;
+}
+
+.three { grid-template-columns: repeat(3, 1fr); }
+.members { grid-template-columns: repeat(2, 1fr); }
+
+.tile,
+.member,
+.contact-card,
+.event,
+.media-card,
+.embed-placeholder {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 22px;
+  background: rgba(255,250,242,.72);
+}
+
+.dark .tile,
+.dark .event {
+  border-color: rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+}
+
+.tile h3,
+.member h3,
+.media-card h3,
+.embed-placeholder h3 { margin: 0 0 8px; }
+.tile p,
+.member p,
+.media-card p,
+.embed-placeholder p { margin: 0; color: var(--muted); }
+.dark .tile p { color: #d9c9b9; }
+
+.song-list {
+  margin-top: 22px;
+  padding: 22px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+}
+
+.small {
+  font-size: .92rem;
+  color: var(--muted);
+}
+.dark .small { color: #bfae9e; }
+
+.album,
+.contact,
+.band-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.cover-placeholder {
+  min-height: 280px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #3b0f13, #711c24);
+  color: #f5eadb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 28px;
+  box-shadow: 0 24px 60px rgba(31, 26, 23, .18);
+}
+
+.album-cover {
+  margin: 0;
+  text-align: center;
+}
+
+.album-cover img {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(31, 26, 23, .18);
+  display: block;
+  margin: 0 auto 12px auto;
+}
+
+.album-cover figcaption {
+  text-align: center;
+}
+
+.band-image img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+}
+
+.event-list {
+  display: grid;
+  gap: 14px;
+}
+
+.event {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+}
+
+.event span {
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: #f8eee1;
+  white-space: nowrap;
+}
+
+.media-section { background: #f9f3ea; }
+
+.media-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.media-card img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.media-card:first-child img {
+  object-position: center 26%;
+}
+
+.embed-placeholder,
+.video-section {
+  margin-top: 18px;
+  background: #fffaf2;
+}
+
+.video-section {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 22px;
+}
+
+.video-section h3 {
+  margin-top: 0;
+}
+
+
+.video-list {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--dark);
+}
+
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.press { background: #efe2d0; }
+.light { background: #fffaf2; }
+
+.contact-card a,
+.press a { color: var(--accent-dark); }
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px clamp(18px, 4vw, 56px);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+@media (max-width: 1000px) {
+  .hero,
+  .album,
+  .contact,
+  .band-layout,
+  .section-text {
+    grid-template-columns: 1fr;
+  }
+
+  .three,
+  .members,
+  .media-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .band-image img { height: auto; }
+}
+
+@media (max-width: 620px) {
+  .three,
+  .members,
+  .media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 46px;
+  }
+
+  .hero-photo img,
+  .media-card img {
+    min-height: 220px;
+    height: auto;
+  }
+
+  .cover-placeholder {
+    min-height: 220px;
+  }
+
+  .event {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+
+.two { grid-template-columns: repeat(2, 1fr); }
+
+.bio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.bio-card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255,250,242,.72);
+  padding: 0;
+  overflow: hidden;
+}
+
+.bio-card summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 18px 20px;
+  display: grid;
+  gap: 4px;
+}
+
+.bio-card summary::-webkit-details-marker { display: none; }
+
+.bio-card summary span {
+  font-weight: 800;
+  font-size: 1.03rem;
+}
+
+.bio-card summary small {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.bio-card p {
+  margin: 0;
+  padding: 0 20px 20px;
+  color: var(--muted);
+}
+
+.press-texts { margin-bottom: 18px; }
+.press-downloads { margin-top: 18px; }
+
+
+@media (max-width: 1000px) {
+  .two,
+  .bio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Verbesserte Lesbarkeit auf dunkelrotem Hintergrund */
+.hero {
+  color: #fff7f2;
+}
+
+.hero h1,
+.hero p,
+.hero .lead {
+  color: #fff7f2;
+}
+
+.hero .eyebrow {
+  color: #f3c7c2;
+}
+
+.hero .button.secondary {
+  color: #fff7f2;
+  border: 1px solid rgba(255,255,255,.35);
+  background: rgba(255,255,255,.08);
+}
+
+.hero .button.secondary:hover {
+  background: rgba(255,255,255,.16);
+}
+
+
+/* Klickbare Musiker-Karten und Unterseiten */
+.bio-link {
+  display: grid;
+  gap: 6px;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.bio-link span {
+  font-weight: 800;
+  font-size: 1.08rem;
+}
+
+.bio-link small {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.bio-link em {
+  margin-top: 8px;
+  color: var(--accent-dark);
+  font-style: normal;
+  font-weight: 800;
+}
+
+.bio-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(31, 26, 23, .13);
+  border-color: rgba(139, 30, 38, .4);
+}
+
+.member-page {
+  background: linear-gradient(180deg, #3b0f13 0%, #5a151b 28%, #fff7f2 28%, #fff7f2 100%);
+}
+
+.member-hero {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 36px;
+  align-items: center;
+  padding: 72px clamp(18px, 6vw, 86px);
+  color: #fff7f2;
+}
+
+.member-hero h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 8vw, 6rem);
+  line-height: .95;
+  letter-spacing: -.055em;
+}
+
+.member-hero .lead,
+.member-hero p {
+  color: #fff7f2;
+}
+
+.member-hero .eyebrow {
+  color: #f3c7c2;
+}
+
+.member-photo {
+  margin: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  background: var(--dark);
+  box-shadow: 0 24px 60px rgba(31, 26, 23, .18);
+}
+
+.member-photo img {
+  width: 100%;
+  min-height: 360px;
+  max-height: 560px;
+  object-fit: cover;
+}
+
+.member-photo figcaption {
+  padding: 10px 14px;
+  color: #f5eadb;
+  font-size: .9rem;
+  background: rgba(0,0,0,.24);
+}
+
+.member-text-section {
+  padding-top: 36px;
+}
+
+.member-text {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: clamp(22px, 4vw, 44px);
+  background: #fffaf2;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: 0 18px 48px rgba(31,26,23,.08);
+  font-size: 1.08rem;
+}
+
+.member-text p {
+  margin: 0 0 1.05rem;
+  color: var(--text);
+}
+
+.member-text p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 1000px) {
+  .member-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .member-photo img {
+    min-height: 240px;
+    height: auto;
+  }
+}
+
+
+.member-group {
+  margin-top: 34px;
+}
+
+.member-group h3 {
+  margin: 0 0 6px;
+  font-size: clamp(1.35rem, 3vw, 2.1rem);
+  color: var(--text);
+}
+
+.member-group .small {
+  margin: 0 0 18px;
+}
+
+.bio-link {
+  display: grid;
+  gap: 6px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.bio-link em {
+  font-style: normal;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: .9rem;
+}
+
+.bio-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(31, 26, 23, .12);
+}
+
+
+.photo-placeholder {
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 28px;
+  background: linear-gradient(135deg, #3b0f13, #711c24);
+  color: #fff7f2;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.member-photo-placeholder {
+  background: transparent;
+}
+
+
+.references-block {
+  margin-top: 34px;
+}
+
+.references-block h3 {
+  margin: 0 0 8px;
+  font-size: clamp(1.35rem, 3vw, 2.1rem);
+  color: #fff7f2;
+}
+
+.reference-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.reference-card {
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.07);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.reference-logo {
+  background: #fffaf2;
+  min-height: 150px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reference-logo img {
+  max-width: 100%;
+  max-height: 230px;
+  object-fit: contain;
+}
+
+.reference-info {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.reference-info h3 {
+  margin: 0 0 6px;
+  color: #fff7f2;
+  font-size: 1.05rem;
+}
+
+.reference-info p {
+  margin: 0 0 12px;
+  color: #d9c9b9;
+}
+
+.reference-info span {
+  display: inline-flex;
+  border: 1px solid rgba(255,255,255,.24);
+  border-radius: 999px;
+  padding: 6px 10px;
+  color: #fff7f2;
+  font-size: .9rem;
+  font-weight: 700;
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+@media (max-width: 1000px) {
+  .reference-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .reference-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.legal-page {
+  background: #fff7f2;
+}
+
+.legal-hero {
+  padding: 76px clamp(18px, 6vw, 86px) 36px;
+  background: linear-gradient(135deg, #3b0f13, #711c24);
+  color: #fff7f2;
+}
+
+.legal-hero h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 7vw, 5rem);
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.legal-hero .eyebrow {
+  color: #f3c7c2;
+}
+
+.legal-content {
+  padding: 48px clamp(18px, 6vw, 86px) 86px;
+}
+
+.legal-card {
+  max-width: 920px;
+  background: #fffaf2;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: clamp(22px, 4vw, 42px);
+  box-shadow: 0 18px 46px rgba(31, 26, 23, .10);
+}
+
+.legal-card h2 {
+  margin: 0 0 24px;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.05;
+}
+
+.legal-card h3 {
+  margin: 26px 0 8px;
+  color: #5a151b;
+}
+
+.legal-card p {
+  margin: 0;
+  color: var(--text);
+}
+
+.legal-card a {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+
+.audio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.audio-card {
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 18px;
+  background: rgba(255,255,255,.07);
+}
+
+.audio-card h4 {
+  margin: 0 0 12px;
+  color: #fff7f2;
+  font-size: 1rem;
+}
+
+.audio-card audio {
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 1000px) {
+  .audio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .audio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.social-section {
+  background: #efe2d0;
+}
+
+.social-layout {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.social-copy {
+  background: #fffaf2;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 26px;
+}
+
+.social-copy p {
+  margin-top: 0;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.social-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: #5a151b;
+  color: #fff7f2;
+  text-decoration: none;
+  font-weight: 800;
+  transition: transform .18s ease, background .18s ease;
+}
+
+.social-button:hover {
+  background: #8b1e26;
+  transform: translateY(-2px);
+}
+
+.spotify-embed {
+  overflow: hidden;
+  border-radius: 22px;
+  box-shadow: 0 18px 46px rgba(31, 26, 23, .14);
+  background: #121212;
+}
+
+.spotify-embed iframe {
+  display: block;
+  border: 0;
+}
+
+@media (max-width: 1000px) {
+  .social-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* === Optimierungen Entwurf 24 === */
+
+/* Dunkelrote Abschnitte: konsequent helle Schrift */
+.intro,
+.album,
+.band-section {
+  background: #3b0f13;
+  color: #fff7f2;
+}
+
+.intro h2,
+.album h2,
+.band-section h2,
+.band-section h3,
+.intro p,
+.album p,
+.band-section p,
+.intro .section-text,
+.band-section .small,
+.album .small {
+  color: #fff7f2;
+}
+
+.intro .eyebrow,
+.album .eyebrow,
+.band-section .eyebrow {
+  color: #f3c7c2;
+}
+
+.intro .section-text p,
+.band-layout p {
+  color: #ead8d2;
+}
+
+.album-cover figcaption {
+  color: #ead8d2;
+}
+
+/* Kompakte Musiker-Buttons */
+.band-section .bio-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.band-section .bio-card {
+  padding: 13px 15px;
+  border-radius: 14px;
+  min-height: auto;
+  background: #fffaf2;
+}
+
+.band-section .bio-link {
+  gap: 2px;
+}
+
+.band-section .bio-link span {
+  color: #2a1715;
+  font-size: .98rem;
+  line-height: 1.25;
+}
+
+.band-section .bio-link small {
+  color: #765956;
+  font-size: .82rem;
+  line-height: 1.25;
+}
+
+.band-section .bio-link em {
+  margin-top: 5px;
+  color: #8b1e26;
+  font-size: .78rem;
+}
+
+.member-group {
+  margin-top: 30px;
+}
+
+.member-group h3 {
+  color: #fff7f2;
+}
+
+.member-group .small {
+  color: #ead8d2;
+}
+
+/* Referenzarchiv: von der Hauptseite ausgelagert */
+.event-link {
+  display: inline-flex;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 999px;
+  padding: 8px 13px;
+  color: #fff7f2;
+  text-decoration: none;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.event-link:hover {
+  background: rgba(255,255,255,.12);
+}
+
+.references-page {
+  background: #3b0f13;
+}
+
+.references-hero {
+  padding: 72px clamp(18px, 6vw, 86px) 42px;
+  color: #fff7f2;
+  background: linear-gradient(135deg, #3b0f13, #711c24);
+}
+
+.references-hero h1 {
+  margin: 0 0 12px;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  line-height: .95;
+  letter-spacing: -.055em;
+}
+
+.references-hero p {
+  max-width: 760px;
+  color: #ead8d2;
+}
+
+.references-hero .eyebrow {
+  color: #f3c7c2;
+}
+
+.references-hero .button.secondary {
+  margin-top: 18px;
+  color: #fff7f2;
+  border-color: rgba(255,255,255,.34);
+  background: rgba(255,255,255,.08);
+}
+
+.references-archive .references-block {
+  margin-top: 0;
+}
+
+.references-footer {
+  background: #fff7f2;
+}
+
+/* Videos kleiner, in einem Raster; Vollbild bleibt über YouTube möglich */
+.video-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.video-embed {
+  border-radius: 14px;
+}
+
+/* Presse-Downloads jetzt nur Bandfoto und Logo */
+.press-downloads {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .band-section .bio-grid,
+  .video-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .band-section .bio-grid,
+  .video-list,
+  .press-downloads {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* === Optimierungen Entwurf 25: Namen und Musikerbilder === */
+
+/* Namen in den Musiker-Schaltflächen vollständig und kontrastreich anzeigen */
+.band-section .bio-card {
+  overflow: visible;
+  min-width: 0;
+  min-height: 88px;
+  padding: 14px 16px;
+  background: #fffaf2;
+  border: 2px solid rgba(255,255,255,.28);
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+}
+
+.band-section .bio-link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+  color: #2a1715;
+  position: relative;
+  z-index: 1;
+}
+
+.band-section .bio-link span {
+  display: block;
+  width: 100%;
+  color: #2a1715;
+  background: transparent;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1.35;
+  white-space: normal;
+  overflow: visible;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  text-shadow: none;
+}
+
+.band-section .bio-link small {
+  display: block;
+  width: 100%;
+  color: #765956;
+  line-height: 1.35;
+  white-space: normal;
+  overflow: visible;
+  overflow-wrap: anywhere;
+}
+
+.band-section .bio-link em {
+  display: block;
+  color: #8b1e26;
+}
+
+/* Einzelbilder vollständig zeigen – kein Zoomen und kein Abschneiden */
+.member-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: #111;
+}
+
+.member-photo img,
+.member-photo-full img {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+  background: #111;
+}
+
+.member-photo figcaption {
+  flex: 0 0 auto;
+}
+
+/* Auch das große Bandfoto vollständig anzeigen */
+.band-image img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+  background: #111;
+}
+
+/* Auf kleinen Bildschirmen weiterhin gut lesbar */
+@media (max-width: 620px) {
+  .band-section .bio-card {
+    min-height: auto;
+  }
+
+  .member-photo img,
+  .member-photo-full img {
+    min-height: 0;
+    height: auto;
+  }
+}
+
+
+/* === Profilseiten-Layout Entwurf 26 === */
+
+/* Musikerübersicht: keine weißen Überlagerungen, alle Namen klar lesbar */
+.band-section .bio-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.band-section .bio-card,
+.band-section .bio-card:link,
+.band-section .bio-card:visited {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+  width: 100%;
+  min-height: 0;
+  height: auto;
+  padding: 14px 16px;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(255,255,255,.24);
+  border-radius: 14px;
+  background: #5a151b !important;
+  color: #fff7f2 !important;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+.band-section .bio-card::before,
+.band-section .bio-card::after {
+  content: none !important;
+  display: none !important;
+}
+
+.band-section .bio-link span,
+.band-section .bio-link small,
+.band-section .bio-link em {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  overflow: visible;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  position: relative;
+  z-index: 2;
+  background: transparent !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  clip: auto !important;
+  text-overflow: clip;
+}
+
+.band-section .bio-link span {
+  color: #fff7f2 !important;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.band-section .bio-link small {
+  margin-top: 4px;
+  color: #ead8d2 !important;
+  font-size: .84rem;
+  line-height: 1.35;
+}
+
+.band-section .bio-link em {
+  margin-top: 7px;
+  color: #f3c7c2 !important;
+  font-size: .78rem;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.band-section .bio-card:hover {
+  transform: translateY(-2px);
+  background: #711c24 !important;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18);
+}
+
+/* Alle Musiker-Unterseiten: Text links, großes vollständiges Bild rechts */
+.member-profile-page {
+  min-height: calc(100vh - 90px);
+  background: #3b0f13;
+  color: #fff7f2;
+}
+
+.member-profile {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+  gap: clamp(30px, 6vw, 82px);
+  align-items: start;
+  padding: clamp(44px, 7vw, 92px) clamp(18px, 6vw, 86px);
+}
+
+.member-profile-copy {
+  min-width: 0;
+  align-self: center;
+}
+
+.member-profile-copy .eyebrow {
+  color: #f3c7c2;
+}
+
+.member-profile-copy h1 {
+  margin: 0;
+  color: #fff7f2;
+  font-size: clamp(2rem, 4.8vw, 4.5rem);
+  line-height: 1.02;
+  letter-spacing: -.035em;
+  overflow-wrap: anywhere;
+}
+
+.member-role {
+  margin: 14px 0 28px;
+  color: #f3c7c2;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-weight: 800;
+}
+
+.member-profile-copy .member-text {
+  max-width: 760px;
+}
+
+.member-profile-copy .member-text p {
+  margin: 0 0 16px;
+  color: #fff7f2;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.member-back {
+  margin: 30px 0 0;
+}
+
+.member-back-button,
+.member-back-button:visited {
+  color: #3b0f13;
+  background: #fff7f2;
+}
+
+.member-back-button:hover {
+  color: #3b0f13;
+  background: #f3c7c2;
+}
+
+.member-profile-photo {
+  width: 100%;
+  margin: 0;
+  align-self: start;
+  background: #111;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,.3);
+}
+
+.member-profile-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 78vh;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center;
+  background: #111;
+}
+
+.member-profile-photo figcaption {
+  padding: 10px 14px;
+  background: #111;
+  color: #ead8d2;
+  font-size: .84rem;
+  text-align: center;
+}
+
+.member-profile-photo .photo-placeholder {
+  min-height: 420px;
+  color: #fff7f2;
+  background: linear-gradient(135deg, #5a151b, #8b1e26);
+}
+
+/* Ältere Profilregeln neutralisieren */
+.member-hero,
+.member-text-section {
+  display: block;
+}
+
+@media (max-width: 1000px) {
+  .band-section .bio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .member-profile {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, .82fr);
+    gap: 34px;
+  }
+
+  .member-profile-copy h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+  }
+}
+
+@media (max-width: 760px) {
+  .member-profile {
+    grid-template-columns: 1fr;
+  }
+
+  .member-profile-copy {
+    order: 1;
+  }
+
+  .member-profile-photo {
+    order: 2;
+    max-width: 680px;
+  }
+
+  .member-profile-photo img {
+    max-height: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .band-section .bio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .member-profile {
+    padding-top: 38px;
+  }
+}
+
+
+/* === Profilseiten-Lesbarkeit Entwurf 28 === */
+
+/* Profilseiten: heller Hintergrund, gesamte Schrift in Weinrot/Dunkelrot */
+.member-profile-page {
+  background: #fff7f2 !important;
+  color: #5a151b !important;
+}
+
+.member-profile {
+  background: #fff7f2 !important;
+}
+
+.member-profile-copy,
+.member-profile-copy h1,
+.member-profile-copy .eyebrow,
+.member-profile-copy .member-role,
+.member-profile-copy .member-text,
+.member-profile-copy .member-text p,
+.member-profile-copy p {
+  color: #5a151b !important;
+}
+
+.member-profile-copy h1 {
+  color: #3b0f13 !important;
+}
+
+.member-profile-copy .eyebrow,
+.member-profile-copy .member-role {
+  color: #8b1e26 !important;
+}
+
+.member-profile-copy .member-text p {
+  color: #5a151b !important;
+}
+
+.member-back-button,
+.member-back-button:visited {
+  background: #5a151b !important;
+  color: #fff7f2 !important;
+  border-color: #5a151b !important;
+}
+
+.member-back-button:hover {
+  background: #8b1e26 !important;
+  color: #fff7f2 !important;
+}
+
+
+/* === Pressebereich Entwurf 29 === */
+
+.press .section-title > p:last-child {
+  max-width: 760px;
+  color: var(--text);
+}
+
+.press-package {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 28px;
+  padding: 24px;
+  border-radius: 22px;
+  background: #5a151b;
+  color: #fff7f2;
+}
+
+.press-package h3 {
+  margin: 0 0 6px;
+  color: #fff7f2;
+}
+
+.press-package p {
+  margin: 0;
+  color: #ead8d2;
+}
+
+.press-texts {
+  margin-bottom: 28px;
+}
+
+.press-file-link {
+  margin-top: 20px !important;
+}
+
+.press-material-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.press-material-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #fffaf2;
+}
+
+.press-material-card h3 {
+  margin: 16px 0 6px;
+  color: #3b0f13;
+}
+
+.press-material-card p {
+  margin: 0 0 16px;
+  color: #765956;
+}
+
+.press-preview {
+  min-height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #111;
+}
+
+.press-preview img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  object-position: center;
+  background: #111;
+}
+
+.logo-preview,
+.logo-preview img {
+  background: #fff;
+}
+
+.rider-preview img {
+  background: #fff;
+}
+
+.press-download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin-top: auto;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #5a151b;
+  color: #fff7f2;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.press-download-button:hover {
+  background: #8b1e26;
+}
+
+.press-download-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.press-text-link {
+  color: #8b1e26;
+  font-weight: 800;
+}
+
+@media (max-width: 1000px) {
+  .press-material-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .press-package {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 620px) {
+  .press-material-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* === Dreisprachige Navigation Entwurf 30 === */
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 14px;
+  padding-left: 14px;
+  border-left: 1px solid rgba(255,255,255,.25);
+}
+
+.language-switch a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid rgba(255,255,255,.32);
+  border-radius: 999px;
+  color: inherit;
+  font-size: .78rem;
+  font-weight: 900;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.language-switch a:hover,
+.language-switch a.active {
+  background: #fff7f2;
+  color: #5a151b;
+  border-color: #fff7f2;
+}
+
+.translation-note {
+  max-width: 760px;
+  margin: 8px 0 26px;
+  padding: 12px 15px;
+  border-left: 4px solid #8b1e26;
+  background: rgba(90,21,27,.08);
+  color: #5a151b;
+  font-size: .93rem;
+}
+
+@media (max-width: 1040px) {
+  .site-header {
+    flex-wrap: wrap;
+  }
+
+  .language-switch {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .language-switch {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin: 8px 0 0;
+    padding: 8px 0 0;
+    border-left: 0;
+    border-top: 1px solid rgba(255,255,255,.22);
+  }
+}
+
+
+/* === Entwurf 32: kompakte Hörbeispiele + Verena als besondere Begleitung === */
+
+/* Hörbeispiele: zwei platzsparende Reihen/Spalten, Titel links, Play-Knopf rechts */
+#musik .song-list {
+  max-width: 980px;
+}
+
+#musik .audio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 9px 12px !important;
+  margin-top: 14px !important;
+}
+
+#musik .audio-card {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 8px 10px 8px 14px !important;
+  border-radius: 13px !important;
+  background: rgba(255,255,255,.065) !important;
+}
+
+#musik .audio-card h4 {
+  margin: 0 !important;
+  font-size: .94rem !important;
+  line-height: 1.25;
+}
+
+#musik .compact-audio-element {
+  display: none !important;
+}
+
+#musik .compact-audio-button {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,.42);
+  border-radius: 50%;
+  background: #fff7f2;
+  color: #5a151b;
+  font-size: .82rem;
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+#musik .compact-audio-button:hover,
+#musik .compact-audio-button.is-playing {
+  background: #f1d5ce;
+  transform: none;
+}
+
+/* Verena steht direkt bei der aktuellen Besetzung, bleibt aber klar als
+   langjährige künstlerische Begleitung und nicht als Bandmitglied erkennbar. */
+.band-section .bio-card.bio-card-featured,
+.band-section .bio-card.bio-card-featured:link,
+.band-section .bio-card.bio-card-featured:visited {
+  background: #7b3340 !important;
+  border-color: rgba(255,255,255,.42) !important;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+}
+
+.band-section .bio-card.bio-card-featured:hover {
+  background: #914753 !important;
+}
+
+.band-section .bio-card.bio-card-featured small {
+  color: #ffe2db !important;
+}
+
+@media (max-width: 720px) {
+  #musik .audio-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* === Entwurf 33: Panorama OBB Familie === */
+.band-community-photo {
+  margin: 34px 0 32px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #17100f;
+  box-shadow: 0 18px 42px rgba(0,0,0,.22);
+}
+
+.band-community-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+.band-community-photo figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: 10px 14px 12px;
+  background: rgba(0,0,0,.28);
+  color: #f7ece7;
+  font-size: .84rem;
+  line-height: 1.4;
+}
+
+.band-community-caption {
+  font-weight: 700;
+}
+
+.band-community-credit {
+  opacity: .82;
+}
+
+@media (max-width: 620px) {
+  .band-community-photo {
+    margin: 24px 0 26px;
+    border-radius: 14px;
+  }
+
+  .band-community-photo figcaption {
+    display: block;
+  }
+
+  .band-community-credit {
+    display: block;
+    margin-top: 3px;
+  }
+}
+
+
+/* === Entwurf 34: Social-Media-Icons === */
+.social-button {
+  gap: 9px;
+}
+.social-icon {
+  width: 21px;
+  height: 21px;
+  flex: 0 0 21px;
+  display: block;
+}
+.social-label {
+  line-height: 1;
+}
+
+
+/* === Entwurf 35: Bildnachweis Pressefotos === */
+.download-photo-credit {
+  margin: 6px 0 10px;
+  font-size: .82rem;
+  font-style: italic;
+  opacity: .82;
+}
+
+
+/* === Prüfversion 37: finale Freigaben === */
+.band-section .bio-card-head {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+}
+.band-section .bio-card-text { min-width: 0; }
+.band-section .bio-card-thumb {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid rgba(255,255,255,.72);
+  background: rgba(255,255,255,.12);
+  box-shadow: 0 3px 10px rgba(0,0,0,.18);
+}
+.band-section .bio-card-thumb-placeholder {
+  display: grid;
+  place-items: center;
+  color: #fff7f2;
+  font-weight: 900;
+  font-size: 1.15rem;
+}
+.band-section .bio-card-head + em { margin-top: 9px; }
+
+/* Alle Download-Aktionen im Pressebereich bleiben klar lesbar. */
+#presse a[download],
+#presse a[download]:link,
+#presse a[download]:visited {
+  color: #ffffff !important;
+  background: #5a151b;
+  border-radius: 999px;
+  padding: 10px 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 800;
+}
+#presse a[download]:hover { background: #8b1e26; color: #ffffff !important; }
+
+.footer-social-icon-link {
+  display: inline-flex;
+  width: 26px;
+  height: 26px;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  color: currentColor;
+  text-decoration: none;
+}
+.footer-social-icon { width: 20px; height: 20px; display: block; }
+.footer-social-icon-link:hover { opacity: .72; }
+
+
+/* === SCHLUSSVERSION: Download-Texte eindeutig weiß === */
+#presse a[download],
+#presse a[download]:link,
+#presse a[download]:visited,
+#presse .button[download],
+#presse .press-download-button,
+#presse .press-text-link {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+#presse a[download]:hover,
+#presse .press-download-button:hover,
+#presse .press-text-link:hover {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* === FINALFIX: Download-Schrift in allen Sprachversionen === */
+html #presse a[download],
+html #presse a[download]:link,
+html #presse a[download]:visited,
+html #presse .press-download-button,
+html #presse .press-text-link,
+html #presse .press-package .button {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* === Mediengalerie: 10 Konzertfotos === */
+.photo-gallery-wrap {
+  margin-top: 10px;
+}
+
+.photo-gallery-wrap > h3 {
+  margin: 0 0 16px;
+}
+
+.photo-gallery {
+  column-count: 3;
+  column-gap: 14px;
+}
+
+.photo-gallery-item {
+  display: block;
+  margin: 0 0 14px;
+  break-inside: avoid;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #181111;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+}
+
+.photo-gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform .25s ease, filter .25s ease;
+}
+
+.photo-gallery-item:hover img,
+.photo-gallery-item:focus-visible img {
+  transform: scale(1.018);
+  filter: brightness(1.035);
+}
+
+.photo-gallery-item:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .photo-gallery { column-count: 2; }
+}
+
+@media (max-width: 560px) {
+  .photo-gallery { column-count: 1; }
+  .photo-gallery-item { border-radius: 11px; }
+}
+
+
+/* === Version 2.0: klare Bandstruktur, Live-Bereich und Klick-zum-Laden === */
+.member-group.founder-group {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(90,21,27,.22);
+}
+.member-group.collaborator-group {
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(90,21,27,.16);
+}
+.member-group-intro {
+  max-width: 900px;
+  margin-bottom: 18px;
+}
+.member-thanks {
+  margin-top: 18px;
+  opacity: .82;
+  max-width: 900px;
+}
+.band-section .bio-card-head + em { display: none !important; }
+
+.live-section {
+  margin-top: 0;
+}
+.live-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(280px, .75fr);
+  gap: 22px;
+  align-items: stretch;
+}
+.concert-panel,
+.reference-panel {
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 18px;
+  padding: 22px;
+  background: rgba(255,255,255,.06);
+}
+.concert-list {
+  display: grid;
+  gap: 12px;
+}
+.concert-empty {
+  margin: 0;
+  font-size: 1.05rem;
+  opacity: .8;
+}
+.concert-card {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+}
+.concert-card:last-child { border-bottom: 0; }
+.concert-card time { font-weight: 900; }
+.concert-card strong,
+.concert-card span { display: block; }
+.concert-card span { opacity: .78; margin-top: 3px; }
+.reference-panel h3 { margin-top: 0; }
+.reference-panel .button { margin-top: 8px; }
+
+.external-embed-placeholder {
+  width: 100%;
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(90,21,27,.96), rgba(38,18,20,.96));
+  border: 1px solid rgba(255,255,255,.16);
+  padding: 20px;
+}
+.external-spotify { min-height: 352px; }
+.external-load-button {
+  appearance: none;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 999px;
+  background: #fff7f2;
+  color: #5a151b;
+  padding: 12px 18px;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+.external-load-button:hover,
+.external-load-button:focus-visible {
+  background: #f1d5ce;
+}
+.video-embed > .external-embed-placeholder { aspect-ratio: 16/9; min-height: 0; }
+.spotify-embed > iframe,
+.video-embed > iframe { width: 100%; border: 0; border-radius: 14px; }
+
+@media (max-width: 780px) {
+  .live-layout { grid-template-columns: 1fr; }
+  .concert-card { grid-template-columns: 1fr; gap: 6px; }
+}
+
+
+/* === Final update: back-to-top, logo audio cards, compact press area, colored footer icons === */
+html { scroll-behavior: smooth; }
+
+.back-to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  background: #5a151b;
+  color: #fff7f2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 800;
+  box-shadow: 0 12px 24px rgba(0,0,0,.28);
+  z-index: 50;
+}
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  background: #8b1e26;
+  color: #ffffff;
+}
+
+.live-section .reference-panel .button,
+.live-section .reference-panel .button:link,
+.live-section .reference-panel .button:visited {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+#musik .song-list {
+  max-width: 1040px;
+  padding: 18px;
+}
+#musik .audio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  margin-top: 12px !important;
+}
+#musik .audio-card {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: 74px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 78px;
+  padding: 10px 12px 10px 10px !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(255,255,255,.16);
+  background: linear-gradient(135deg, rgba(110,26,34,.92), rgba(51,18,22,.9)) !important;
+  overflow: hidden;
+}
+#musik .audio-card::before {
+  content: "";
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background-image: linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.03)), url('img/logo-ostbeatbend.jpg');
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.18);
+}
+#musik .audio-card:nth-child(3n+2) { background: linear-gradient(135deg, rgba(92,23,47,.92), rgba(45,16,27,.9)) !important; }
+#musik .audio-card:nth-child(3n+3) { background: linear-gradient(135deg, rgba(117,49,27,.92), rgba(55,24,16,.9)) !important; }
+#musik .audio-card h4 {
+  margin: 0 !important;
+  font-size: .97rem !important;
+  line-height: 1.28;
+  color: #fff8f3;
+}
+#musik .compact-audio-element { display: none !important; }
+#musik .compact-audio-button {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.42);
+  background: #fff7f2;
+  color: #5a151b;
+  font-size: .84rem;
+  font-weight: 900;
+}
+#musik .compact-audio-button:hover,
+#musik .compact-audio-button.is-playing {
+  background: #f1d5ce;
+}
+@media (max-width: 720px) {
+  #musik .audio-grid { grid-template-columns: 1fr !important; }
+  #musik .audio-card { grid-template-columns: 64px minmax(0, 1fr) auto; }
+  #musik .audio-card::before { width: 54px; height: 54px; }
+}
+
+.press-package,
+.press-material-grid {
+  align-items: start;
+}
+.press-material-card {
+  gap: 10px;
+}
+.press-download-button,
+.press-text-link,
+.press-package .button {
+  font-size: .92rem !important;
+}
+.press-preview + h3 {
+  margin-top: 8px;
+}
+
+.social-button.facebook,
+.footer-social-icon-link.facebook { color: #1877F2; }
+.social-button.instagram,
+.footer-social-icon-link.instagram { color: #E4405F; }
+.social-button.spotify,
+.footer-social-icon-link.spotify { color: #1DB954; }
+.footer-social-icon-link.facebook:hover,
+.footer-social-icon-link.instagram:hover,
+.footer-social-icon-link.spotify:hover { opacity: .85; }
+
+
+/* === Consent + layout refinement === */
+.press-texts { align-items: start !important; }
+.button,
+.press-download-button,
+.press-text-link,
+.social-button { font-size: .90rem; }
+
+.back-to-top {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.external-media-consent {
+  margin: 14px 0 18px;
+  padding: 16px 18px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 16px;
+  background: rgba(90,21,27,.10);
+}
+.external-media-consent[hidden] { display: none !important; }
+.external-media-consent h4 { margin: 0 0 5px; }
+.external-media-consent p { margin: 0; }
+.external-consent-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.external-consent-button {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 14px;
+  background: #5a151b;
+  color: #fff;
+  font: inherit;
+  font-size: .88rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+.external-consent-button.secondary {
+  background: transparent;
+  color: inherit;
+  border: 1px solid currentColor;
+  opacity: .82;
+}
+.external-media-cover {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  display: grid;
+  place-items: center;
+  border-radius: inherit;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+.external-media-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(28,10,12,.22), rgba(48,9,14,.70));
+}
+.external-media-brand {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 84px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.92);
+  color: #5a151b;
+  font-weight: 900;
+  letter-spacing: .02em;
+}
+.video-list .video-embed:nth-child(1) .external-media-cover { background-image: url('img/medien/ostbeatbend-live-01.jpg'); }
+.video-list .video-embed:nth-child(2) .external-media-cover { background-image: url('img/medien/ostbeatbend-live-03.jpg'); }
+.video-list .video-embed:nth-child(3) .external-media-cover { background-image: url('img/medien/ostbeatbend-live-06.jpg'); }
+.video-list .video-embed:nth-child(4) .external-media-cover { background-image: url('img/medien/ostbeatbend-live-08.jpg'); }
+.video-list .video-embed:nth-child(5) .external-media-cover { background-image: url('img/medien/ostbeatbend-live-09.jpg'); }
+.external-spotify .external-media-cover {
+  background-image: linear-gradient(135deg, #4f1219, #17100f);
+}
+.media-settings-link {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Footer icons in recognizable brand colors. */
+.footer-social-icon-link.facebook {
+  background: #1877F2;
+  color: #fff;
+  border-radius: 50%;
+}
+.footer-social-icon-link.instagram {
+  background: linear-gradient(135deg, #833AB4, #FD1D1D 55%, #FCAF45);
+  color: #fff;
+  border-radius: 7px;
+}
+.footer-social-icon-link.spotify {
+  background: #1DB954;
+  color: #111;
+  border-radius: 50%;
+}
+.footer-social-icon-link .footer-social-icon { width: 17px; height: 17px; }
